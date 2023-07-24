@@ -6,7 +6,7 @@ const Header = () => {
 		<header className="flex justify-between items-center pt-2 px-2">
 			{/* Left Tabs */}
 			<div className="flex space-x-4 text-[12px] font-bold text-gray-600">
-				<Link to="#recommended">Recommended</Link>
+				<Link to="#recommended" className="border-b-2 border-blue-200 text-blue-500">Recommended</Link>
 				<Link to="#hot">Hot</Link>
 				<Link to="#novel">Novel</Link>
 			</div>
@@ -20,7 +20,7 @@ const Header = () => {
 				/>
 				<img
 					src={serachIcon}
-					className="w-[12px] absolute top-[30%] left-[5px] "
+					className="w-[12px] absolute top-[30%] left-[8px] "
 					alt=""
 				/>
 			</div>

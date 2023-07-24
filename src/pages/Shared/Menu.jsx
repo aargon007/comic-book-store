@@ -29,12 +29,14 @@ const Menu = () => {
 			title: "VIP",
 		},
 	];
+
+	
 	return (
-		<div className="flex gap-5 px-16 justify-between items-center mt-10">
+		<div className="flex gap-5 px-10 justify-between items-center mt-10">
 			{myMenu?.map((menu) => (
 				<Link key={menu?.title}>
-					<img src={menu?.image} alt="" />
-					<p className="text-[10px] font-bold">{menu?.title}</p>
+					<img src={menu?.image} alt={menu?.title} className='mx-auto' />
+					<p className="text-[10px] font-bold text-center">{menu?.title}</p>
 				</Link>
 			))}
 		</div>

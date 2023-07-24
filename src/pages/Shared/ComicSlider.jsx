@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import photo1 from "../../assets/images/4565.jpg";
 import photo2 from "../../assets/images/4562.jpg";
 import photo3 from "../../assets/images/4563.jpg";
@@ -6,6 +7,8 @@ import photo4 from "../../assets/images/4564.jpg";
 
 const ComicSlider = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
+
+	const images = [photo1, photo2, photo3, photo4];
 
 	const nextSlide = () => {
 		setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -21,10 +24,16 @@ const ComicSlider = () => {
 		setActiveIndex(index);
 	};
 
-	const images = [photo1, photo2, photo3, photo4];
+	const handlers = useSwipeable({
+		onSwipedLeft: () => nextSlide(),
+		onSwipedRight: () => prevSlide(),
+		swipeDuration: 500,
+		preventScrollOnSwipe: true,
+		trackMouse: true,
+	});
 
 	return (
-		<div className="relative w-full h-64">
+		<div className="relative w-full h-64" {...handlers}>
 			{images.map((image, index) => (
 				<div
 					key={index}
@@ -41,8 +50,9 @@ const ComicSlider = () => {
 					/>
 				</div>
 			))}
+
 			<button
-				className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-[#AAB2BD] px-1 py-1 rounded-full"
+				className="absolute left-5 top-1/2 transform -translate-y-1/2 bg-[#AAB2BD] bg-opacity-70 px-1 py-1 rounded-full"
 				onClick={prevSlide}
 			>
 				<svg
@@ -60,8 +70,9 @@ const ComicSlider = () => {
 					/>
 				</svg>
 			</button>
+
 			<button
-				className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-[#AAB2BD] px-1 py-1 rounded-full"
+				className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-[#AAB2BD] bg-opacity-70 px-1 py-1 rounded-full"
 				onClick={nextSlide}
 			>
 				<svg
@@ -79,13 +90,14 @@ const ComicSlider = () => {
 					/>
 				</svg>
 			</button>
+			
 			<div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 mb-4">
 				{images.map((_, index) => (
 					<button
 						key={index}
 						className={`mx-1 px-1 py-1 rounded-full ${
 							index === activeIndex
-								? "bg-[#4A89DC] px-1.5 py-1.5"
+								? "bg-[#6c98d1] px-1.5 py-1.5"
 								: "bg-gray-300"
 						}`}
 						onClick={() => goToSlide(index)}
