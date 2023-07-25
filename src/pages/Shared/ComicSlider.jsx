@@ -33,7 +33,7 @@ const ComicSlider = () => {
 	});
 
 	return (
-		<div className="relative w-full h-64" {...handlers}>
+		<div className="relative w-full h-52" {...handlers}>
 			{images.map((image, index) => (
 				<div
 					key={index}

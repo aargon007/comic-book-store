@@ -16,11 +16,12 @@ const Header = () => {
 				<input
 					type="text"
 					placeholder="Search"
-					className="bg-[#f6f8fa] rounded-full pl-5 pr-2 py-1 focus:outline-none text-[12px] border-2 border-[#d2d6db]"
+					spellCheck='false'
+					className="bg-[#f6f8fa] text-[12px] w-8/12 ml-auto border-2 border-[#d2d6db] pl-5 pr-2 py-1 rounded-full focus:outline-none"
 				/>
 				<img
 					src={serachIcon}
-					className="w-[12px] absolute top-[30%] left-[8px] "
+					className="w-[12px] absolute top-[30%] left-[37%] "
 					alt=""
 				/>
 			</div>
